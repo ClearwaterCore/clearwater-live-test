@@ -2,8 +2,6 @@
 
 This framework allows scripted testing of a Clearwater deployment to be used as a system-wide test of a fix/feature.
 
-Project Clearwater is an open-source IMS core, developed by [Metaswitch Networks](http://www.metaswitch.com) and released under the [GNU GPLv3](http://www.projectclearwater.org/download/license/). You can find more information about it on [our website](http://www.projectclearwater.org/) or [our wiki](http://clearwater.readthedocs.org/en/latest/).
-
 ## Usage Options
 
 The `clearwater-live-test` framework can be run in two modes:
@@ -27,16 +25,16 @@ The test framework requires Ruby 1.9.3 and bundler to be installed.
 
     sudo apt-get install build-essential bundler git --yes
     curl -L https://get.rvm.io | bash -s stable
-    
+
 This step may fail due to missing GPG signatures. If this happens it will suggest a command to run to resolve the problem (e.g. `gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3`). Run the command suggested, then run the above command again, which should now succeed).
 
 Next install the required ruby version.
-    
+
     source ~/.rvm/scripts/rvm
     rvm autolibs enable
     rvm install 1.9.3
     rvm use 1.9.3
-    
+
 At this point, `ruby --version` should indicate that 1.9.3 is in use.
 
 To prepare a machine to run the tests manually, clone the repository:
@@ -134,7 +132,7 @@ end
 This example would create two numbers in ellis/homestead, register them, then send a MESSAGE transaction between them before deregistering and destroying the numbers. Because the deregistration takes place in a cleanup block, this happens even if the main scenario fails or hits an exception.
 
 There are different `skip` functions that can be included in a test. These control whether a test case is run, based on the command line options given at run time:
- 
+
  - `skip_unless_pstn`: PSTN test, requires that `PSTN=true` be passed to rake or the test will be skipped.
  - `skip_unless_live`: Live call test, requires that a live number is given to rake as `LIVENUMBER=...`.
  - `skip_unless_<application server>`: Application Server test, requires that a hostname for the particular server is passed to rake as (for example) `GEMINI=...`.
